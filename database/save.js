@@ -1,8 +1,8 @@
 'use strict';
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
-  //process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost/todo',
-  'postgres://postgres:postgres@localhost/diary',
+  process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost/todo',
+  //'postgres://postgres:postgres@localhost/diary',
   { logging: false });
 const Diary = sequelize.define('Diary', {
   id: {
