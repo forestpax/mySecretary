@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+  <body>  
+    <h1>営業レポート入力フォーム</h1>  
+    <form>  
+        <table border="1">  
+            <tbody>  
+                <tr>  
+                    <th>担当者</th>  
+                    <td>  
+               <input type="text" name="salesPerson">  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <th>詳細情報</th>  
+                    <td>  
+                        <textarea name="infoDetail"></textarea>  
+                    </td>  
+                </tr>  
+            </tbody>  
+        </table><!-- end table -->  
+        <input type="button" name="btn" onclick="google.script.run.withSuccessHandler(update).myFunction(this.parentNode);" value="登録する">  
+    </form>  
+</body> 
+</html>
