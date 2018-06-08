@@ -70,6 +70,39 @@ module.exports = (robot) => {
   });
 
 
+  robot.respond(/record/i, (msg) => {
+    msg.send('log: をつけて確認したい事件名を投稿してください。');
+
+    request.get({
+      url: URL,
+      qs: { process: "relationList" },
+      json: true
+    }, function (error, response, body) {
+      let ary = body.relations;
+      ary.forEach(rel => {
+        msg.send(rel);
+      });
+    });
+
+  });
+
+  robot.hear(/log: (.+)/i, (msg) => {
+    let caseName = msg.match[1].trim();
+
+    request.get({
+      url: URL,
+      qs: { process: "records", caseName: caseName },
+      json: true
+    }, function (error, response, body) {
+      let ary = body.logs;
+      ary.forEach(log => {
+        msg.send(log);
+      });
+    });
+
+  });
+
+
   robot.respond(/done/i, (msg) => {
     request.get({
       url: URL,
